@@ -3,10 +3,13 @@
 var express = require('express');
 var app = express();
 var router = require('./api');
+var bodyParser = require('body-parser');
 
 require('./database');
 require('./seed');
+
 app.use('/', express.static('public'));
+app.use(bodyParser.json());
 
 app.use('/api', router);
 
